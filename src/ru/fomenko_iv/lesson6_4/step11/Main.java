@@ -24,9 +24,11 @@ pseudoRandomStream(13) должен вернуть стрим, состоящи�
 public class Main {
     public static void main(String[] args) {
         System.out.println("6.4 Stream API – Шаг 11");
+        IntStream a=pseudoRandomStream(13).limit(20);
+        a.forEach(System.out::println);
     }
 
     public static IntStream pseudoRandomStream(int seed) {
-        return null; // your implementation here
+        return IntStream.iterate(seed,x->{x=x*x; return (x/10)%1000;});
     }
 }
